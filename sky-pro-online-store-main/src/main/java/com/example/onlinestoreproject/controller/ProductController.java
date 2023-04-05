@@ -1,6 +1,7 @@
 package com.example.onlinestoreproject.controller;
 
 import com.example.onlinestoreproject.dto.ProductDTO;
+import com.example.onlinestoreproject.dto.ProductDTONoCreatingDate;
 import com.example.onlinestoreproject.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,23 +23,26 @@ public class ProductController {
     }
 
     @PostMapping
-    public ProductDTO create(ProductDTO product){
+    public ProductDTO create(@RequestBody ProductDTO product) {
         return productService.save(product);
     }
 
     @PatchMapping
-    public ProductDTO update(ProductDTO product){
+    public ProductDTONoCreatingDate update(@RequestBody ProductDTONoCreatingDate product) {
         return productService.update(product);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id){
+    public void delete(@PathVariable Long id) {
         productService.delete(id);
     }
 
-//    TODO: Implement
     @GetMapping("/search")
-    public List<ProductDTO> search(@RequestParam(required = false) String name, @RequestParam(required = false) String description, @RequestParam(required = false) String categoryName){
+    public List<ProductDTO> search(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String description,
+            @RequestParam(required = false) String categoryName
+    ) {
         return productService.search(name, description, categoryName);
     }
 }

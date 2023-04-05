@@ -1,7 +1,7 @@
 -- liquibase formatted sql
 
 
--- changeset jalig:3
+-- changeset V:3
 create table product_categories
 (
     categories_id bigint NOT NULL REFERENCES category(id),

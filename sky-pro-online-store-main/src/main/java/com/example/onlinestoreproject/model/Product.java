@@ -20,4 +20,9 @@ public class Product {
     private Instant modificationDate = Instant.now();
     @ManyToMany
     private Set<Category> categories;
+
+    public void addCategory(Category category) {
+        this.categories.add(category);
+    }
+
 }
