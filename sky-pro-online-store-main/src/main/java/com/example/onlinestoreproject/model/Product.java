@@ -16,7 +16,7 @@ public class Product {
     private Long id;
     private String name;
     private String description;
-    private Instant creationDate = Instant.now();
+    private Instant createdDate = Instant.now();
     private Instant modificationDate = Instant.now();
     @ManyToMany
     private Set<Category> categories;

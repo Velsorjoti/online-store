@@ -33,7 +33,7 @@ public class ProductDTO {
         dto.setId(product.getId());
         dto.setName(product.getName());
         dto.setDescription(product.getDescription());
-        dto.setCreationDate(product.getCreationDate());
+        dto.setCreationDate(product.getCreatedDate());
         dto.setModificationDate(product.getModificationDate());
         dto.setCategories(product.getCategories().stream().map(CategoryDTO::of).collect(Collectors.toList()));
         return dto;
@@ -41,7 +41,7 @@ public class ProductDTO {
 
 
     public static ProductDTO from(Product product, List<CategoryDTO> categories) {
-        return new ProductDTO(product.getId(), product.getName(), product.getDescription(), product.getCreationDate(), product.getModificationDate(), categories);
+        return new ProductDTO(product.getId(), product.getName(), product.getDescription(), product.getCreatedDate(), product.getModificationDate(), categories);
     }
 
     public Product to() {
@@ -49,7 +49,7 @@ public class ProductDTO {
         product.setId(this.getId());
         product.setName(this.getName());
         product.setDescription(this.getDescription());
-        product.setCreationDate(this.getCreationDate());
+        product.setCreatedDate(this.getCreationDate());
         product.setModificationDate(this.getModificationDate());
         product.setCategories(this.getCategories().stream().map(CategoryDTO::to).collect(toSet()));
         return product;
