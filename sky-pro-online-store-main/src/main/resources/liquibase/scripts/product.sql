@@ -1,14 +1,14 @@
 -- liquibase formatted sql
 
 
--- changeset jalig:1
+-- changeset V:1
 create table product
 (
-    id                BIGSERIAL NOT NULL PRIMARY KEY,
-    creation_date     TIMESTAMP,
+    id                BIGSERIAL PRIMARY KEY,
+    name              VARCHAR(255),
+    created_date      TIMESTAMP,
     description       VARCHAR(255),
-    modification_date TIMESTAMP,
-    name              VARCHAR(255)
+    modification_date TIMESTAMP
 );
 
 
